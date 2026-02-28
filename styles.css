@@ -1,5 +1,20 @@
-:root { --bg:#c296e6; --accent:#dad4f5; }
-html,body{height:100%; margin:0; font-family:fantasy; background:var(--bg); color:#1ab942d7}
-header{padding:48px 24px; text-align:center}
-button{background:var(--accent); color:white; border:none; padding:12px 18px; border-radius:6px; cursor:pointer}
-button:active{transform:translateY(1px)}
+html,body{
+  height:200%;
+  margin:0;
+  font-family:fantasy;
+  background: linear-gradient(to bottom, #d7e6ec 10%, #a0c8db 20%, #568baf 40%, #513675 60%, #12091f 100%);
+}
+
+header{
+  padding:70px 70px;
+  text-align:center;
+  color:#482f70;
+  font-size:2em;
+  font-weight:bold;
+  text-shadow:1px 1px 2px rgb(245, 153, 192), 0 0 1em rgb(138, 114, 156), 0 0 0.2em rgb(255, 255, 255), 0 0 0.2em rgba(0,0,0,0.3);
+}
+
+#posts { max-width:720px; margin:35px auto; padding:0 16px; }
+.post{ background:rgba(255,255,255,0.85); border-radius:8px; padding:16px; margin:12px 0; box-shadow:0 1px 4px rgba(0,0,0,0.06) }
+#postForm input, #postForm textarea { width:90%; padding:10px; margin:6px 0; border:1px solid #ddd; border-radius:6px }
+#postForm button { margin-top:6px }
