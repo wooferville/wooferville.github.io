@@ -1,5 +1,5 @@
-:root { --bg:#f7f7f7; --accent:#0b5ffd; }
-html,body{height:100%; margin:0; font-family:Arial, sans-serif; background:var(--bg); color:#222}
+:root { --bg:#c296e6; --accent:#dad4f5; }
+html,body{height:100%; margin:0; font-family:fantasy; background:var(--bg); color:#1ab942d7}
 header{padding:48px 24px; text-align:center}
 button{background:var(--accent); color:white; border:none; padding:12px 18px; border-radius:6px; cursor:pointer}
 button:active{transform:translateY(1px)}
