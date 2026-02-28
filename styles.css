@@ -120,9 +120,12 @@ body{ padding-top: var(--banner-height); }
 
 /* small-screen adjustments */
 @media (max-width:550px){
-  .banner-inner{ padding: 6vw 4vw; font-size: 2em; justify-content: center; }
-  :root{ --banner-height: 72px; } /* allow taller banner on small screens */
-}
+  .banner-inner{ padding: 6vw 4vw; font-size: clamp(0.75rem, 3vw, 1.25rem); justify-content: center; }
+  :root{ --banner-height: 72px; } /* allow taller banner on small screens */  /* make banner text even smaller or wrap if needed */
+  .banner-inner { font-size: 12px; }
+  .banner-inner span, .banner-inner strong, .banner-inner a {
+    white-space: normal; /* let them break across lines */
+  }}
 
 #postapp {
   max-width: 720px;
