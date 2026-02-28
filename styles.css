@@ -1,20 +1,112 @@
+:root { --banner-height: 56px; }
+
 html,body{
-  height:200%;
+  /* allow natural height so layout doesn't stretch */
+  height:auto;
   margin:0;
   font-family:fantasy;
-  background: linear-gradient(to bottom, #d7e6ec 10%, #a0c8db 20%, #568baf 40%, #513675 60%, #12091f 100%);
+  background: linear-gradient(to bottom, #380303 1%, #f16666 3%, #f32828 10%, #9e2943 20%, #802a78 40%, #513675 60%, #12091f 100%);
 }
+
 
 header{
   padding:70px 70px;
   text-align:center;
   color:#482f70;
-  font-size:2em;
+  font-size:2.5em;
   font-weight:bold;
   text-shadow:1px 1px 2px rgb(245, 153, 192), 0 0 1em rgb(138, 114, 156), 0 0 0.2em rgb(255, 255, 255), 0 0 0.2em rgba(0,0,0,0.3);
 }
 
+
 #posts { max-width:720px; margin:35px auto; padding:0 16px; }
-.post{ background:rgba(255,255,255,0.85); border-radius:8px; padding:16px; margin:12px 0; box-shadow:0 1px 4px rgba(0,0,0,0.06) }
+.post{ background:rgba(255,255,255,0.85); backdrop-filter: blur(8px); padding:16px; margin:12px 0; box-shadow:0 0px 20px rgba(0,0,0,0.06) }
 #postForm input, #postForm textarea { width:90%; padding:10px; margin:6px 0; border:1px solid #ddd; border-radius:6px }
 #postForm button { margin-top:6px }
+
+* { box-sizing: border-box; }
+
+img, video { max-width: 100%; height: 100%; display: block; }
+
+p, li, span, a, h1, h2, h3, h4, h5, h6, body {
+  overflow-wrap: anywhere; /* modern, breaks at sensible places */
+  word-wrap: break-word;   /* legacy fallback */
+  word-break: break-word;  /* broad fallback for old browsers */
+  hyphens: auto;           /* allow hyphenation where supported */
+
+  white-space: normal;
+}
+
+input, textarea {
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+  white-space: normal;
+  resize: vertical; 
+}
+
+.title-single-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.small-centered {
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.small-text {
+  font-size: 0.9em;
+}
+
+.site-banner{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--banner-height);
+  background: url('https://i.imgur.com/j6TBmpZ.jpeg') repeat-x;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  padding: 0 12px;
+}
+
+.banner-inner{
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  color: #0f0c0c;
+  font-family: cursive;
+  font-size: 20px;
+  text-shadow:1px 0.7px 0.3px rgb(0, 0, 0), 0 0 1em rgb(255, 255, 255), 0 0 0.2em rgb(255, 255, 255), 0 0 0.2em rgba(0,0,0,0.3);
+}
+
+.site-banner a{ color: rgba(131, 10, 155, 0.95); text-decoration: underline; }
+
+#bannerClose{
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* push page content down so the banner doesn't cover it */
+body{ padding-top: var(--banner-height); }
+
+/* small-screen adjustments */
+@media (max-width:520px){
+  .banner-inner{ padding: 0 8px; font-size: 14px; justify-content: center; }
+  :root{ --banner-height: 72px; } /* allow taller banner on small screens */
+}
+

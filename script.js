@@ -1,8 +1,19 @@
-const btn = document.getElementById('colorBtn');
-btn.addEventListener('click', () => {
-  document.body.style.background = '#' + Math.floor(Math.random()*16777215).toString(16);
-});
-console.log('Site loaded — hello!');
+// Banner hide/show
+const banner = document.querySelector('.site-banner');
+const closeBtn = document.getElementById('bannerClose');
+
+function hideBanner(persist = true) {
+  if (!banner) return;
+  banner.style.display = 'none';
+  document.body.style.paddingTop = '0';
+  if (persist) localStorage.setItem('bannerHidden', '1');
+}
+
+if (closeBtn) {
+  closeBtn.addEventListener('click', () => hideBanner(true));
+}
+
+// Posts functionality
 const postForm = document.getElementById('postForm');
 const postsList = document.getElementById('postsList');
 
@@ -19,7 +30,7 @@ function renderPosts() {
   const posts = loadPosts();
   postsList.innerHTML = posts.length
     ? posts.map(p => `<article class="post"><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml(p.content)}</p><time>${p.date}</time></article>`).join('')
-    : '<p>No posts yet — add one!</p>';
+    : '<p>i dont know why thats up there!!!!!</p>';
 }
 
 function escapeHtml(s){ return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
@@ -37,3 +48,5 @@ postForm.addEventListener('submit', e => {
 });
 
 renderPosts();
+
+console.log('Site loaded — hello!');
