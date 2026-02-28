@@ -33,7 +33,7 @@ header{
   font-family: fantasy;
 }
 #posts { max-width:720px; margin:35px auto; padding:0 16px; }
-.post{ background:rgba(255,255,255,0.85); backdrop-filter: blur(8px); padding:16px; margin:12px 0; box-shadow:0 0px 20px rgba(0,0,0,0.06) }
+.post{ background:rgba(255,255,255,0.85); backdrop-filter: blur(8px); padding:16px; margin:12px 0; box-shadow:0 0px 20px rgba(238, 47, 88, 0.06) }
 #postForm input, #postForm textarea { width:90%; padding:10px; margin:6px 0; border:1px solid #ddd; border-radius:6px }
 #postForm button { margin-top:6px }
 
@@ -152,7 +152,7 @@ body{ padding-top: var(--banner-height); }
   padding: 20px 24px;
   margin: 1.5rem 0;              /* a little more space above/below */
   border-radius: 12px;           /* rounded corners */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.425);
   transition: transform .2s, box-shadow .2s;
   font-family: "Sue Ellen Francisco", cursive;
   font-weight: 400;
@@ -168,8 +168,15 @@ body{ padding-top: var(--banner-height); }
 
 .post h3 {
   margin-top: 0;                 /* tighter heading spacing */
-  font-size: 1.4em;
+  font-size: 1.5em;
   color: #3a2350;
+}
+
+.post p {
+  margin: 0.75rem 0;             /* consistent spacing between paragraphs */
+  line-height: 1.6;              /* improve readability */
+  color: #49217a;
+  font-size: 1.123em;
 }
 
 .post time {
