@@ -4,21 +4,34 @@ html,body{
   /* allow natural height so layout doesn't stretch */
   height:auto;
   margin:0;
-  font-family:fantasy;
+}
+
+.eater-regular {
+  font-family: "Eater", serif;
+  font-weight: 40;
+  font-style: normal;
+}
+body{
   background: linear-gradient(to bottom, #380303 1%, #f16666 3%, #f32828 10%, #9e2943 20%, #802a78 40%, #513675 60%, #12091f 100%);
 }
 
 
 header{
-  padding:70px 70px;
+  padding:4vw;
   text-align:center;
-  color:#482f70;
+  color:#f7d7d7;
   font-size:2.5em;
-  font-weight:bold;
-  text-shadow:1px 1px 2px rgb(245, 153, 192), 0 0 1em rgb(138, 114, 156), 0 0 0.2em rgb(255, 255, 255), 0 0 0.2em rgba(0,0,0,0.3);
+  font-weight: 400;
+  font-family: "Eater", serif;
+  text-shadow:1px 1px 2px rgb(245, 153, 192), 0 0 1em rgb(29, 3, 48), 0 0 0.2em rgb(255, 255, 255), 0 0 0.2em rgba(0,0,0,0.3);
 }
 
-
+.small-centered {
+  font-size: 1.8em;
+  text-align: center;
+  color: #4f0b69;
+  font-family: fantasy;
+}
 #posts { max-width:720px; margin:35px auto; padding:0 16px; }
 .post{ background:rgba(255,255,255,0.85); backdrop-filter: blur(8px); padding:16px; margin:12px 0; box-shadow:0 0px 20px rgba(0,0,0,0.06) }
 #postForm input, #postForm textarea { width:90%; padding:10px; margin:6px 0; border:1px solid #ddd; border-radius:6px }
@@ -80,7 +93,8 @@ input, textarea {
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   align-items: center;
   justify-content: center;
   color: #0f0c0c;
@@ -105,8 +119,59 @@ input, textarea {
 body{ padding-top: var(--banner-height); }
 
 /* small-screen adjustments */
-@media (max-width:520px){
-  .banner-inner{ padding: 0 8px; font-size: 14px; justify-content: center; }
+@media (max-width:550px){
+  .banner-inner{ padding: 6vw 4vw; font-size: 2em; justify-content: center; }
   :root{ --banner-height: 72px; } /* allow taller banner on small screens */
 }
 
+#postapp {
+  max-width: 720px;
+  margin: 2remx auto;
+  padding: 0 1rem; }
+
+.smaller-ones {
+  font-size: 2.4em;
+  text-align: left;
+  color: #350335;
+  font-family: "Sue Ellen Francisco", cursive;
+}
+
+  .smaller {
+  font-family: "Sue Ellen Francisco", cursive;
+  font-weight: 400;
+  font-style: normal;
+  }
+
+
+.post {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 20px 24px;
+  margin: 1.5rem 0;              /* a little more space above/below */
+  border-radius: 12px;           /* rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform .2s, box-shadow .2s;
+  font-family: "Sue Ellen Francisco", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.post:hover,
+.post:focus-within {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.post h3 {
+  margin-top: 0;                 /* tighter heading spacing */
+  font-size: 1.4em;
+  color: #3a2350;
+}
+
+.post time {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.85em;
+  color: #a077cf;
+}
