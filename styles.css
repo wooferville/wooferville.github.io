@@ -124,6 +124,17 @@ body{ padding-top: var(--banner-height); }
     white-space: normal; /* let them break across lines */
   }}
 
+/* extra tweaks for narrow viewports */
+@media (max-width: 600px) {
+  header { font-size: 1.8em; padding: 3vw; }
+  .small-centered { font-size: 1.4em; }
+  #posts, #POSTSS { padding: 0 1rem; }
+  .post { padding: 16px; }
+  .banner-inner { gap: 0.4rem; }
+  /* scale down background patterns and animation steps slightly */
+  .twinkling, .clouds { background-size: 500px 500px; }
+}
+
 /* alternative technique: transparent overlay via pseudo-element */
 html::before {
   content: '';
@@ -282,7 +293,7 @@ body {
 }
 
 .twinkling{
-	width:10000px;
+	width:100%; /* fill the container instead of forcing 10,000px */
 	height: 100%;
 	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
 	background-size: 1000px 1000px;
@@ -297,11 +308,10 @@ body {
   -o-animation:move-background 70s linear infinite;
   -webkit-animation:move-background 70s linear infinite;
   animation:move-background 70s linear infinite;
-	
 }
 
 .clouds{
-	width:10000px;
+	width:100%; /* avoid horizontal scrolling on small viewports */
 	height: 100%;
 	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
 	background-size: 1000px 1000px;
