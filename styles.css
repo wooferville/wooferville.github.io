@@ -1,9 +1,13 @@
 :root { --banner-height: 56px; }
 
-html,body{
-  /* allow natural height so layout doesn't stretch */
-  height:auto;
-  margin:0;
+html, body {
+  margin: 0;
+  height: auto;
+
+  /* gradient + overlay image */
+  background:
+    linear-gradient(to bottom, #380303 1%, #f16666 3%, #f32828 10%,
+                    #9e2943 20%, #802a78 40%, #513675 60%, #12091f 100%);
 }
 
 .eater-regular {
@@ -11,9 +15,7 @@ html,body{
   font-weight: 40;
   font-style: normal;
 }
-body{
-  background: linear-gradient(to bottom, #380303 1%, #f16666 3%, #f32828 10%, #9e2943 20%, #802a78 40%, #513675 60%, #12091f 100%);
-}
+/* body gradient is already set on html,body earlier; removing duplicate rule so the overlay image remains visible */
 
 
 header{
@@ -118,14 +120,28 @@ input, textarea {
 /* push page content down so the banner doesn't cover it */
 body{ padding-top: var(--banner-height); }
 
-/* small-screen adjustments */
+/* phone */
 @media (max-width:550px){
   .banner-inner{ padding: 6vw 4vw; font-size: clamp(0.75rem, 3vw, 1.25rem); justify-content: center; }
-  :root{ --banner-height: 72px; } /* allow taller banner on small screens */  /* make banner text even smaller or wrap if needed */
+  :root{ --banner-height: 92px; } /* allow taller banner on small screens */  /* make banner text even smaller or wrap if needed */
   .banner-inner { font-size: clamp(0.90rem, 4.5vw, 1.25rem); }
   .banner-inner span, .banner-inner strong, .banner-inner a {
     white-space: normal; /* let them break across lines */
   }}
+
+/* alternative technique: transparent overlay via pseudo-element */
+html::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://i.imgur.com/xcxYA1T.png') center/cover no-repeat;
+  opacity: 0.90;               /* control transparency here */
+  pointer-events: none;       /* let clicks pass through */
+  z-index: -1;                /* keep it behind everything */
+}
 
 #postapp {
   max-width: 720px;
@@ -183,5 +199,19 @@ body{ padding-top: var(--banner-height); }
   display: block;
   margin-top: 0.75rem;
   font-size: 0.85em;
-  color: #a077cf;
+}
+
+.lily {
+  border: 26px solid transparent;
+  padding: 15px;
+  border-image: url(https://dollarchive.neocities.org/css/borders/floral4.png) 26 round;
+  overflow: auto;
+  margin: 5px;
+}
+
+/* overall page border */
+body {
+  border: 45px solid transparent; 
+    border-image: url('https://solaria.neocities.org/guides/borderimage/whitelace.png')
+                  40 round;
 }

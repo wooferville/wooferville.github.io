@@ -29,7 +29,12 @@ function savePosts(posts) {
 function renderPosts() {
   const posts = loadPosts();
   postsList.innerHTML = posts.length
-    ? posts.map(p => `<article class="post"><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml(p.content)}</p><time>${p.date}</time></article>`).join('')
+    ? posts.map(p =>
+        `<article class="post lily">
+           <h3>${escapeHtml(p.title)}</h3>
+           <p>${escapeHtml(p.content)}</p>
+           <time>${p.date}</time>
+         </article>`).join('')
     : '<p>i dont know why thats up there!!!!!</p>';
 }
 
