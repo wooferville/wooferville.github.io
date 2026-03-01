@@ -35,7 +35,7 @@ function renderPosts() {
            <p>${escapeHtml(p.content)}</p>
            <time>${p.date}</time>
          </article>`).join('')
-    : '<p>i dont know why thats up there!!!!!</p>';
+    : '<p>i dont know why thats up there!!!!! and this does NOT work on mobile, im so sorry</p>';
 }
 
 function escapeHtml(s){ return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }

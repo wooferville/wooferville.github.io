@@ -122,31 +122,14 @@ body{ padding-top: var(--banner-height); }
   .banner-inner { font-size: clamp(0.90rem, 4.5vw, 1.25rem); }
   .banner-inner span, .banner-inner strong, .banner-inner a {
     white-space: normal; /* let them break across lines */
-  }}
-
-/* extra tweaks for narrow viewports */
-@media (max-width: 600px) {
-  header { font-size: 1.8em; padding: 3vw; }
-  .small-centered { font-size: 1.4em; }
+  }
+  /* shrink the decorative page border on narrow viewports */
+  body { border-width: 10px; }
+  /* keep posts and containers from running edge-to-edge */
   #posts, #POSTSS { padding: 0 1rem; }
   .post { padding: 16px; }
-  .banner-inner { gap: 0.4rem; }
-  /* scale down background patterns and animation steps slightly */
+  /* reduce the size of background textures for performance */
   .twinkling, .clouds { background-size: 500px 500px; }
-}
-
-/* alternative technique: transparent overlay via pseudo-element */
-html::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('https://i.imgur.com/xcxYA1T.png') center/cover no-repeat;
-  opacity: 0.90;               /* control transparency here */
-  pointer-events: none;       /* let clicks pass through */
-  z-index: -1;                /* keep it behind everything */
 }
 
 #postapp {
@@ -293,7 +276,7 @@ body {
 }
 
 .twinkling{
-	width:100%; /* fill the container instead of forcing 10,000px */
+	width:10000px;
 	height: 100%;
 	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
 	background-size: 1000px 1000px;
@@ -308,10 +291,11 @@ body {
   -o-animation:move-background 70s linear infinite;
   -webkit-animation:move-background 70s linear infinite;
   animation:move-background 70s linear infinite;
+	
 }
 
 .clouds{
-	width:100%; /* avoid horizontal scrolling on small viewports */
+	width:10000px;
 	height: 100%;
 	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
 	background-size: 1000px 1000px;
